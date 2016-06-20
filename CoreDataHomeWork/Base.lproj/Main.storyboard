@@ -1,25 +1,121 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iX3-Ow-DHs">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--movie list-->
+        <scene sceneID="M29-mo-QHM">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="yHr-Tk-QmL" customClass="MovieTableViewController" customModule="CoreDataHomeWork" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tg8-Wg-fHY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="l7d-mN-RBN">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l7d-mN-RBN" id="nA6-VX-1vM">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yHr-Tk-QmL" id="E4S-Bk-Kvu"/>
+                            <outlet property="delegate" destination="yHr-Tk-QmL" id="fmE-YT-7jX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="movie list" id="a5X-8a-GRW">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Tnb-bq-qlz">
+                            <connections>
+                                <segue destination="CHB-L8-6fQ" kind="show" id="Cgy-0I-m7p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cfv-lL-oGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1057" y="279"/>
+        </scene>
+        <!--想加入的電影-->
+        <scene sceneID="Xzz-wt-h99">
+            <objects>
+                <viewController id="CHB-L8-6fQ" customClass="TextfieldViewController" customModule="CoreDataHomeWork" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zhL-aK-jZj"/>
+                        <viewControllerLayoutGuide type="bottom" id="AWv-5b-MjX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kgc-zp-9BN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電影名稱..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PfW-kP-cla">
+                                <rect key="frame" x="20" y="94" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電影類型..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvn-vq-1oC">
+                                <rect key="frame" x="20" y="154" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="評價分數1...10" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYc-WO-idN">
+                                <rect key="frame" x="20" y="214" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.98274085093555064" blue="0.93975769595734626" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="mvn-vq-1oC" firstAttribute="top" secondItem="PfW-kP-cla" secondAttribute="bottom" constant="30" id="COi-HM-ca1"/>
+                            <constraint firstItem="mvn-vq-1oC" firstAttribute="leading" secondItem="Kgc-zp-9BN" secondAttribute="leadingMargin" id="EMC-xh-FwU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mvn-vq-1oC" secondAttribute="trailing" id="OQf-8B-oYA"/>
+                            <constraint firstItem="gYc-WO-idN" firstAttribute="leading" secondItem="Kgc-zp-9BN" secondAttribute="leadingMargin" id="SqT-KY-SJ3"/>
+                            <constraint firstItem="PfW-kP-cla" firstAttribute="leading" secondItem="Kgc-zp-9BN" secondAttribute="leadingMargin" id="Wbc-2U-VQA"/>
+                            <constraint firstItem="PfW-kP-cla" firstAttribute="top" secondItem="zhL-aK-jZj" secondAttribute="bottom" constant="30" id="oU9-Yr-HxT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PfW-kP-cla" secondAttribute="trailing" id="s3e-7R-aBD"/>
+                            <constraint firstItem="gYc-WO-idN" firstAttribute="top" secondItem="mvn-vq-1oC" secondAttribute="bottom" constant="30" id="uGM-FH-RVN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gYc-WO-idN" secondAttribute="trailing" id="uH7-uF-5vK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="想加入的電影" id="Q99-zY-HS8">
+                        <barButtonItem key="rightBarButtonItem" title="save" id="qXc-6W-2eo">
+                            <connections>
+                                <action selector="saveAction:" destination="CHB-L8-6fQ" id="tLR-tU-U74"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nametext" destination="PfW-kP-cla" id="grQ-44-hce"/>
+                        <outlet property="scoretext" destination="gYc-WO-idN" id="oTo-WA-ofS"/>
+                        <outlet property="typetext" destination="mvn-vq-1oC" id="873-GV-dn6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1VW-jn-ZXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="274"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lkx-Sy-sXl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iX3-Ow-DHs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9FL-ca-1HZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yHr-Tk-QmL" kind="relationship" relationship="rootViewController" id="AIz-Oo-QES"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mst-jC-vV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="274"/>
         </scene>
     </scenes>
 </document>
